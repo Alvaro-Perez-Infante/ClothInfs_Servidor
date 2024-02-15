@@ -1,4 +1,4 @@
-package com.example.security.service.user.impl;
+package com.example.ClothInfs.service.user.impl;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
