@@ -20,6 +20,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    /**
+     * Obtiene todos los usuarios.
+     *
+     * @return una lista de todos los usuarios
+     */
     @Override
     public List<Usuario> getAllUsuarios() {
         // Convierte el Iterable a List usando el constructor de ArrayList
@@ -27,16 +32,35 @@ public class UsuarioServiceImpl implements UsuarioService {
             .collect(Collectors.toList());
     }
 
+    /**
+     * Obtiene un usuario por su ID.
+     *
+     * @param id el ID del usuario a buscar
+     * @return el usuario con el ID especificado, o null si no se encuentra
+     */
     @Override
     public Usuario getUsuarioById(Long id) {
         return usuarioRepository.findById(id).orElse(null);
     }
 
+    /**
+     * Agrega un nuevo usuario.
+     *
+     * @param usuario el usuario a agregar
+     * @return el usuario agregado
+     */
     @Override
     public Usuario addUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
 
+    /**
+     * Actualiza un usuario existente.
+     *
+     * @param id el ID del usuario a actualizar
+     * @param usuario el usuario con los nuevos datos
+     * @return el usuario actualizado, o null si el usuario no existe
+     */
     @Override
     public Usuario updateUsuario(Long id, Usuario usuario) {
         Usuario existingUsuario = usuarioRepository.findById(id).orElse(null);
@@ -66,11 +90,21 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
     }
 
+    /**
+     * Elimina un usuario por su ID.
+     *
+     * @param id el ID del usuario a eliminar
+     */
     @Override
     public void deleteUsuario(Long id) {
         usuarioRepository.deleteById(id);
     }
 
+    /**
+     * Crea un servicio para obtener detalles de usuario para Spring Security.
+     *
+     * @return el servicio UserDetailsService
+     */
     @Override
     public UserDetailsService usuarioDetailsService() {
         return new UserDetailsService() {

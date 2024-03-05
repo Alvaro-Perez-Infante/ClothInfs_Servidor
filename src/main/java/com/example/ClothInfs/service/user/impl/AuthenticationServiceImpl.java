@@ -36,6 +36,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         this.authenticationManager = authenticationManager;
     }
 
+    /**
+     * Método para el registro de usuarios.
+     * 
+     * @param request la solicitud de registro
+     * @return la respuesta de autenticación JWT
+     */
     @Override
     public JwtAuthenticationResponse signup(SignUpRequest request) {
         if(usuarioRepository.existsByEmail(request.getEmail())) {
@@ -53,6 +59,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         return JwtAuthenticationResponse.builder().token(jwt).build();
     }
 
+    /**
+     * Método para el inicio de sesión de usuarios.
+     * 
+     * @param request la solicitud de inicio de sesión
+     * @return la respuesta de autenticación JWT
+     */
     @Override
     public JwtAuthenticationResponse signin(SigninRequest request) {
         // Maneja la autenticación

@@ -14,17 +14,33 @@ import com.example.ClothInfs.service.user.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Controlador para la autenticación de usuarios.
+ */
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
-	@Autowired
+    @Autowired
     AuthenticationService authenticationService;
+
+    /**
+     * Maneja las solicitudes de registro de usuarios.
+     *
+     * @param request La solicitud de registro de usuario
+     * @return ResponseEntity con la respuesta de autenticación JWT
+     */
     @PostMapping("/signup")
     public ResponseEntity<JwtAuthenticationResponse> signup(@RequestBody SignUpRequest request) {
         return ResponseEntity.ok(authenticationService.signup(request));
     }
 
+    /**
+     * Maneja las solicitudes de inicio de sesión de usuarios.
+     *
+     * @param request La solicitud de inicio de sesión de usuario
+     * @return ResponseEntity con la respuesta de autenticación JWT
+     */
     @PostMapping("/signin")
     public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody SigninRequest request) {
         return ResponseEntity.ok(authenticationService.signin(request));

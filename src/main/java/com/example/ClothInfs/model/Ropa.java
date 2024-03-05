@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+/**
+ * Clase que representa una prenda de ropa en el sistema.
+ */
 @Entity
 public class Ropa {
     @Id
@@ -16,10 +19,23 @@ public class Ropa {
     private double precio;
     private int cantidad;
 
+    /**
+     * Constructor por defecto de la clase Ropa.
+     */
     public Ropa() {
         super();
     }
 
+    /**
+     * Constructor de la clase Ropa con parámetros.
+     *
+     * @param id       El ID de la prenda de ropa.
+     * @param nombre   El nombre de la prenda de ropa.
+     * @param tipo     El tipo de la prenda de ropa.
+     * @param size     El tamaño de la prenda de ropa.
+     * @param precio   El precio de la prenda de ropa.
+     * @param cantidad La cantidad de la prenda de ropa disponible.
+     */
     public Ropa(Long id, String nombre, String tipo, String size, double precio, int cantidad) {
         super();
         this.id = id;

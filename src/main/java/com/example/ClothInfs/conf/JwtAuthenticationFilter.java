@@ -22,6 +22,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * El filtro JwtAuthenticationFilter intercepta las solicitudes para autenticar usuarios utilizando JWT.
+ * Extiende OncePerRequestFilter para garantizar que se ejecute una vez por solicitud.
+ */
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -31,6 +35,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private UsuarioService usuarioService;
 
+    /**
+     * Este método se ejecuta para cada solicitud y realiza la autenticación del usuario utilizando JWT.
+     *
+     * @param request     El objeto HttpServletRequest
+     * @param response    El objeto HttpServletResponse
+     * @param filterChain El objeto FilterChain para pasar la solicitud al siguiente filtro
+     * @throws ServletException Si ocurre un error en la ejecución del filtro
+     * @throws IOException      Si ocurre un error de E/S durante la ejecución del filtro
+     */
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
             @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
