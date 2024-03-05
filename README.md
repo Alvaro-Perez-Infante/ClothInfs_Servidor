@@ -1,5 +1,6 @@
-# JWT Authentication and Authorization with Spring Boot 3 and Spring Security 6
-
-Medium
-Article: https://medium.com/@truongbui95/jwt-authentication-and-authorization-with-spring-boot-3-and-spring-security-6-2f90f9337421
 # ClothInfs_Servidor
+Para hacer push a github (Estando en el directorio correcto):
+git add .
+git commit -m "Fix-N1"
+git push -u origin main
+postman = https://documenter.getpostman.com/view/32189132/2sA2xcaEuV
